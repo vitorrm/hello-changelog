@@ -1,0 +1,34 @@
+{
+    "categories": [
+        { 
+            "title": "lowdb is awesome",
+            "projects": [
+                {
+                    "id": "project-a", 
+                    "title": "Project A",
+                    "git-repo": ""
+                },
+                {
+                    "id": "project-b", 
+                    "title": "Project B",
+                    "git-repo": ""
+                }
+            ]
+        },
+        { 
+            "title": "Some other category",
+            "projects": [
+                {
+                    "id": "project-a2", 
+                    "title": "Project A2",
+                    "git-repo": ""
+                },
+                {
+                    "id": "project-b2", 
+                    "title": "Project B2",
+                    "git-repo": ""
+                }
+            ]
+        }
+    ]
+}

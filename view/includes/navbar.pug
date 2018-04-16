@@ -1,0 +1,68 @@
+// Navigation
+
+nav#mainNav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
+  a.navbar-brand(href='index.html') Hello Changelog
+  
+  button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarResponsive.collapse.navbar-collapse
+    ul#accordion.navbar-nav.navbar-sidenav
+      if categories
+        each category, index in categories
+          li.nav-item(data-toggle='tooltip', data-placement='right', title=category.title)
+            a.nav-link.nav-link-collapse.collapsed(data-toggle='collapse', href=`#collapse-menu-${index}`, data-parent='#accordion')
+              i.fa.fa-fw.fa-wrench
+              span.nav-link-text
+                | #{category.title}
+            ul(id=`collapse-menu-${index}`).sidenav-second-level.collapse
+              each project in category.projects
+                li
+                  a(href='navbar.html') #{project.title}
+              else
+                li Configurations is missing
+      else
+        li Configurations is missing
+    
+    <!-- Top menu-->
+    ul.navbar-nav.sidenav-toggler
+      li.nav-item
+        a#sidenavToggler.nav-link.text-center
+          i.fa.fa-fw.fa-angle-left
+    ul.navbar-nav.ml-auto
+      li.nav-item.dropdown
+        a#alertsDropdown.nav-link.dropdown-toggle.mr-lg-2(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+          i.fa.fa-fw.fa-bell
+          span.d-lg-none
+            | Alerts
+            span.badge.badge-pill.badge-warning 6 New
+          span.indicator.text-warning.d-none.d-lg-block
+            i.fa.fa-fw.fa-circle
+        .dropdown-menu(aria-labelledby='alertsDropdown')
+          h6.dropdown-header New Alerts:
+          .dropdown-divider
+          a.dropdown-item(href='#')
+            span.text-success
+              strong
+                i.fa.fa-long-arrow-up.fa-fw
+                | Status Update
+            span.small.float-right.text-muted 11:21 AM
+            .dropdown-message.small This is an automated server response message. All systems are online.
+          .dropdown-divider
+          a.dropdown-item(href='#')
+            span.text-danger
+              strong
+                i.fa.fa-long-arrow-down.fa-fw
+                | Status Update
+            span.small.float-right.text-muted 11:21 AM
+            .dropdown-message.small This is an automated server response message. All systems are online.
+          .dropdown-divider
+          a.dropdown-item(href='#')
+            span.text-success
+              strong
+                i.fa.fa-long-arrow-up.fa-fw
+                | Status Update
+            span.small.float-right.text-muted 11:21 AM
+            .dropdown-message.small This is an automated server response message. All systems are online.
+          .dropdown-divider
+          a.dropdown-item.small(href='#')
+            | View all alerts
